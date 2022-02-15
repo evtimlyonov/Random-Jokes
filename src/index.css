@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
+body {
+  background-color: hsl(210deg 36% 96%);
+  font-family: 'Open Sans', sans-serif;
+  color: hsl(209deg 61% 16%);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
