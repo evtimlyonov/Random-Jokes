@@ -4,11 +4,21 @@ const url = 'https://api.icndb.com/jokes/random?escape=javascript';
 
 function App() {
   const [joke, setJoke] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const fetchData = async () => {
-    const fetching = await fetch(url);
-    const data = await fetching.json();
-    setJoke(data.value.joke);
+    try {
+      setIsLoading(true);
+      const fetching = await fetch(url);
+      const data = await fetching.json();
+      setJoke(data.value.joke);
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+      setIsLoading(true);
+      setError(true);
+    }
   };
 
   return (
@@ -23,7 +33,16 @@ function App() {
         onClick={fetchData}>
         make me laugh chuck!
       </button>
-      {joke && <p className='mt-8 text-[#617d98] text-2xl'>{joke}</p>}
+      {error && (
+        <p className='mt-8 text-[#617d98] text-2xl'>
+          Something went wrong. Please try again later.
+        </p>
+      )}
+
+      {isLoading && !error && (
+        <p className='mt-8 text-[#617d98] text-2xl'>Loading...</p>
+      )}
+      {!isLoading && <p className='mt-8 text-[#617d98] text-2xl'>{joke}</p>}
     </div>
   );
 }
