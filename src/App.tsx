@@ -24,9 +24,9 @@ function App() {
   return (
     <div className='w-[90vw] max-w-4xl mx-auto mt-40 flex flex-col text-center items-center'>
       <img
-        src='https://ajax-basic-projects-random-jokes.netlify.app/chuck.png'
+        src='https://pngimg.com/uploads/chuck_norris/chuck_norris_PNG14.png'
         alt='chuck norris'
-        className='mb-4'
+        className='mb-4 h-72'
       />
       <button
         className='uppercase font-semibold tracking-widest text-white rounded-xl border-4 border-[#49a6e9] bg-[#49a6e9] py-[0.375rem] px-3 text-sm shadow-xl transition duration-500 hover:bg-[#063251] hover:text-[#49a6e9]'
